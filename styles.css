@@ -1,0 +1,331 @@
+/* Sports betting essay single-page layout */
+:root {
+  --bg: #0b132b;
+  --panel: rgba(255, 255, 255, 0.04);
+  --muted: #c9d6f0;
+  --text: #f3f6ff;
+  --accent-amber: #f7b267;
+  --accent-cyan: #6cf0d2;
+  --accent-deep: #122043;
+  --border: rgba(255, 255, 255, 0.08);
+  --max-width: 1100px;
+  --shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 10% 20%, rgba(108, 240, 210, 0.08), transparent 25%),
+              radial-gradient(circle at 80% 0%, rgba(247, 178, 103, 0.08), transparent 30%),
+              var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  padding: 32px 0 64px;
+}
+
+.page {
+  width: min(var(--max-width), 94vw);
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-family: 'Lora', 'Space Grotesk', serif;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(18, 32, 67, 0.9), rgba(12, 19, 40, 0.95));
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(247, 178, 103, 0.08), rgba(108, 240, 210, 0.06));
+  pointer-events: none;
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  color: var(--accent-cyan);
+  margin: 0 0 14px;
+}
+
+h1 {
+  font-size: clamp(32px, 5vw, 48px);
+}
+
+.lede {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.button--solid {
+  background: linear-gradient(135deg, var(--accent-amber), #fdc26f);
+  color: #0f131f;
+  border-color: transparent;
+  box-shadow: 0 12px 30px rgba(247, 178, 103, 0.35);
+}
+
+.button--ghost:hover,
+.button--solid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.button--ghost {
+  background: transparent;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.stat {
+  padding: 12px;
+  background: var(--panel);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.stat__number {
+  display: block;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.stat__label {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hero__art {
+  position: relative;
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(14px);
+  opacity: 0.8;
+}
+
+.orb--amber {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(247, 178, 103, 0.7), rgba(247, 178, 103, 0));
+  top: 12%;
+  left: 6%;
+}
+
+.orb--cyan {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(108, 240, 210, 0.7), rgba(108, 240, 210, 0));
+  bottom: -8%;
+  right: -6%;
+}
+
+.ticker {
+  position: relative;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(12, 19, 40, 0.85);
+  width: 100%;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  z-index: 1;
+}
+
+.ticker__label {
+  margin: 0 0 6px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.ticker__marquee {
+  display: flex;
+  gap: 24px;
+  animation: marquee 18s linear infinite;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.content {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.section {
+  padding: 28px 24px;
+  background: rgba(18, 32, 67, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.section--highlight {
+  background: linear-gradient(135deg, rgba(247, 178, 103, 0.1), rgba(108, 240, 210, 0.08));
+}
+
+.section__label {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: var(--accent-cyan);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.grid--two {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.card {
+  padding: 18px;
+  background: var(--panel);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.card--accent {
+  background: rgba(247, 178, 103, 0.08);
+}
+
+.list {
+  display: grid;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.list__item {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.citations {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.citations li {
+  padding: 10px 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+}
+
+em {
+  color: var(--text);
+  font-style: italic;
+}
+
+@media (max-width: 960px) {
+  body {
+    padding-top: 20px;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ticker__marquee {
+    animation-duration: 24s;
+  }
+}
+
+@media (max-width: 620px) {
+  .section {
+    padding: 22px 18px;
+  }
+  .card {
+    padding: 14px;
+  }
+  .stat__number {
+    font-size: 20px;
+  }
+  .citations li {
+    padding: 10px;
+  }
+}
