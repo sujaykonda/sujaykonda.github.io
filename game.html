@@ -26,9 +26,9 @@
     <header class="hero">
       <div class="hero__copy">
         <p class="eyebrow">Interactive</p>
-        <h1>Betting reality check</h1>
+        <h1>Game</h1>
         <p class="lede">
-          This quick game uses campus scenarios to show why “risk-free” promos aren’t free, how apps keep you tapping, and what the real odds look like.
+          A quick quiz that calls out common betting myths, risky app tricks, and real odds behind “free money” promos.
         </p>
         <div class="hero__actions">
           <a class="button button--solid" href="#game">Start the game</a>
@@ -74,24 +74,6 @@
           </div>
         </div>
       </section>
-      <section class="section section--highlight">
-        <div class="section__label">Use this in groups</div>
-        <h2>How to run it with friends or clubs</h2>
-        <div class="list">
-          <div class="list__item">
-            <h3>Warm-up</h3>
-            <p>Have everyone answer individually, then compare scores. Ask which questions felt “obvious” versus surprising.</p>
-          </div>
-          <div class="list__item">
-            <h3>Connect to campus</h3>
-            <p>After each prompt, list where you’ve seen the tactic on campus: push alerts, stadium ads, or group-chat parlays.</p>
-          </div>
-          <div class="list__item">
-            <h3>Plan next steps</h3>
-            <p>Use the <a href="solutions.html">Solutions</a> page to pick one action to push this semester—orientation content, ad limits, or deposit caps.</p>
-          </div>
-        </div>
-      </section>
     </main>
 
     <div class="footer">
@@ -100,7 +82,7 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    const initGame = () => {
       const questions = [
         {
           prompt: 'Why do “risk-free” or “no sweat” bets often lead to higher losses?',
@@ -288,7 +270,13 @@
       restartBtn.addEventListener('click', resetGame);
 
       renderQuestion();
-    });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initGame);
+    } else {
+      initGame();
+    }
   </script>
 </body>
 </html>
