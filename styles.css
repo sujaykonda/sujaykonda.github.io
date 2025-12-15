@@ -340,6 +340,61 @@ h1 {
   font-size: 15px;
 }
 
+.media-card--chart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.chart__row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.6fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.chart__label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.chart__bar {
+  position: relative;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.chart__bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: var(--value, 50%);
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-amber));
+  opacity: 0.9;
+}
+
+.chart__value {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
 .grid--two {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
